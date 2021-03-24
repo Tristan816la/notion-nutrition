@@ -1,0 +1,35 @@
+GET http://localhost:3000/api/food
+
+###
+POST http://localhost:3000/api/food
+Content-Type: application/json
+
+{
+    "name": "fish",
+    "calories": 130
+}
+
+###
+PUT http://localhost:3000/api/food
+Content-Type:  application/json
+
+{
+    "name": "milk",
+    "protein": 10
+}
+
+###
+DELETE http://localhost:3000/api/food
+Content-Type: application/json 
+
+{
+    "name": "milk"
+}
+
+###
+POST http://localhost:3000/api/calculate
+Content-Type: application/json
+
+{
+    "food": "fish,milk(1.5)"
+}
