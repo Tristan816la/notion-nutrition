@@ -3,7 +3,6 @@ import { TextField, makeStyles, Button } from "@material-ui/core";
 import { Formik, Field } from "formik";
 import axios from "axios";
 
-interface Props {}
 interface FormErrors {
   name?: string;
   calories?: string;
@@ -23,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-const AddFood = (props: Props) => {
+const AddFood = () => {
   const classes = useStyles();
   const [text, setText] = useState("");
   const [modify, setModify] = useState(false);

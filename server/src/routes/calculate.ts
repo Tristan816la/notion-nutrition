@@ -24,7 +24,9 @@ router.post("/api/calculate", async (req: Request, res: Response) => {
     const names = nameTimes.map((e: calcualted) => e.name);
     const times = nameTimes.map((e: calcualted) => e.times);
     const food = await Food.find().where("name").in(names);
-
+    if (food.length !== names.length) {
+      throw Error("invalid names exist");
+    }
     const result = food.reduce(
       (acc, cur, idx) => ({
         ...acc,

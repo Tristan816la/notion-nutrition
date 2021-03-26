@@ -10,7 +10,6 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import Paper from "@material-ui/core/Paper";
 import axios from "axios";
 
-interface Props {}
 interface IFood {
   name: string;
   fat: number;
@@ -32,7 +31,7 @@ const useStyles = makeStyles({
   },
 });
 
-const DashBoard = (props: Props) => {
+const DashBoard = () => {
   const [food, setFood] = useState<IFood[]>([]);
   const classes = useStyles();
   const deleteFood = async (name: string) => {
@@ -75,13 +74,13 @@ const DashBoard = (props: Props) => {
                 <strong>Calories</strong>
               </TableCell>
               <TableCell align="right">
-                <strong>Fat&nbsp;(g)</strong>
+                <strong>Protein&nbsp;(g)</strong>
               </TableCell>
               <TableCell align="right">
                 <strong>Carbs&nbsp;(g)</strong>
               </TableCell>
               <TableCell align="right">
-                <strong>Protein&nbsp;(g)</strong>
+                <strong>Fat&nbsp;(g)</strong>
               </TableCell>
               <TableCell></TableCell>
             </TableRow>
@@ -94,9 +93,9 @@ const DashBoard = (props: Props) => {
                     {row.name}
                   </TableCell>
                   <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.carbs}</TableCell>
                   <TableCell align="right">{row.protein}</TableCell>
+                  <TableCell align="right">{row.carbs}</TableCell>
+                  <TableCell align="right">{row.fat}</TableCell>
                   <TableCell align="right">
                     <DeleteIcon
                       color="secondary"

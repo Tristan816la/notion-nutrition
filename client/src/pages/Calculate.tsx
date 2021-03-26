@@ -12,7 +12,6 @@ import {
 } from "@material-ui/core";
 import React, { useState } from "react";
 import axios from "axios";
-import DeleteIcon from "@material-ui/icons/Delete";
 
 interface IStats {
   calories?: number;
@@ -28,24 +27,21 @@ const useStyles = makeStyles({
   table: {
     maxWidth: 750,
   },
-  deleteBtn: {
-    "&:hover": {
-      opacity: "0.8",
-      cursor: "pointer",
-      bacgkround: "rgba(0, 0, 0, 0.2)",
-    },
+  btn: {
+    height: "35px",
   },
 });
 const Calculate = () => {
   const classes = useStyles();
   const [stats, setStats] = useState<IStats>({});
   const [food, setFood] = useState<string>("");
+  const [err, setErr] = useState<string>("");
   const handleSubmit = async () => {
     try {
       const res = await axios.post("/calculate", { food });
       setStats(res.data);
     } catch (err) {
-      console.log(err.data);
+      setErr(err.response.data);
     }
   };
   return (
@@ -64,9 +60,27 @@ const Calculate = () => {
           value={food}
           placeholder="Input your string with specific format"
           onChange={(e) => setFood(e.target.value)}
+          error={!!err}
+          helperText={!!err ? "Food invalid" : ""}
         ></TextField>
-        <Button variant="contained" color="primary" onClick={handleSubmit}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleSubmit}
+          className={classes.btn}
+        >
           Calculate
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            setFood("");
+            setStats({});
+          }}
+          className={classes.btn}
+        >
+          Reset
         </Button>
       </div>
       {stats && (stats.calories as number) > 0 ? (
@@ -90,10 +104,10 @@ const Calculate = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              <TableCell>{stats.calories}</TableCell>
-              <TableCell>{stats.protein}</TableCell>
-              <TableCell>{stats.carbs}</TableCell>
-              <TableCell>{stats.fat}</TableCell>
+              <TableCell align="right">{stats.calories}</TableCell>
+              <TableCell align="right">{stats.protein}</TableCell>
+              <TableCell align="right">{stats.carbs}</TableCell>
+              <TableCell align="right">{stats.fat}</TableCell>
             </TableBody>
           </Table>
         </TableContainer>

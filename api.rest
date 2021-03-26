@@ -27,9 +27,9 @@ Content-Type: application/json
 }
 
 ###
-POST https://notion-nutrition.herokuapp.com/api/calculate
+POST http://localhost:5000/api/calculate
 Content-Type: application/json
 
 {
-    "food": "fish,milk(1.5)"
+    "food": "fish,avocado"
 }

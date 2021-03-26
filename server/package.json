@@ -6,9 +6,8 @@
   "engines": {
     "node": "12.18.1"
   },
-
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "ts-node-dev src/index.ts",
     "postinstall": "tsc",
     "watch-node": "nodemon dist/index.js",
     "watch-ts": "tsc -w",
