@@ -105,9 +105,9 @@ const Calculate = () => {
             </TableHead>
             <TableBody>
               <TableCell align="right">{stats.calories}</TableCell>
-              <TableCell align="right">{stats.protein}</TableCell>
-              <TableCell align="right">{stats.carbs}</TableCell>
-              <TableCell align="right">{stats.fat}</TableCell>
+              <TableCell align="right">{stats.protein?.toFixed(1)}</TableCell>
+              <TableCell align="right">{stats.carbs?.toFixed(1)}</TableCell>
+              <TableCell align="right">{stats.fat?.toFixed(1)}</TableCell>
             </TableBody>
           </Table>
         </TableContainer>
