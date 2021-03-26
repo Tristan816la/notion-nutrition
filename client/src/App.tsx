@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import axios from "axios";
 
-function App() {
+import DashBoard from "./pages/DashBoard";
+import AddFood from "./pages/AddFood";
+
+import Nav from "./components/Nav";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import Calculate from "./pages/Calculate";
+
+axios.defaults.baseURL = "https://notion-nutrition.herokuapp.com/api/";
+
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Nav></Nav>
+        <Switch>
+          <Route path="/" exact component={DashBoard}></Route>
+          <Route path="/add" component={AddFood}></Route>
+          <Route path="/calculate" component={Calculate}></Route>
+        </Switch>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;

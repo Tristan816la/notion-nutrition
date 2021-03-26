@@ -1,4 +1,4 @@
-GET http://localhost:3000/api/food
+GET http://localhost:5000/api/food
 
 ###
 POST http://localhost:3000/api/food
@@ -27,7 +27,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/api/calculate
+POST https://notion-nutrition.herokuapp.com/api/calculate
 Content-Type: application/json
 
 {

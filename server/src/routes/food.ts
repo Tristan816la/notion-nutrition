@@ -3,8 +3,13 @@ import { Food } from "../models/foodModel";
 
 const router = express.Router();
 
-router.get("/api/food", (req: Request, res: Response) => {
-  return res.send("food");
+router.get("/api/food", async (req: Request, res: Response) => {
+  try {
+    const food = await Food.find();
+    return res.status(200).json(food);
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
 });
 
 router.post("/api/food", async (req: Request, res: Response) => {
