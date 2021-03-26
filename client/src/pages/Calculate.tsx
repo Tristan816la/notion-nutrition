@@ -59,7 +59,10 @@ const Calculate = () => {
           className={classes.text}
           value={food}
           placeholder="Input your string with specific format"
-          onChange={(e) => setFood(e.target.value)}
+          onChange={(e) => {
+            setFood(e.target.value);
+            setErr("");
+          }}
           error={!!err}
           helperText={!!err ? "Food invalid" : ""}
         ></TextField>
@@ -77,6 +80,7 @@ const Calculate = () => {
           onClick={() => {
             setFood("");
             setStats({});
+            setErr("");
           }}
           className={classes.btn}
         >
