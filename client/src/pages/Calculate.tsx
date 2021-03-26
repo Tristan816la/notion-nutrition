@@ -92,13 +92,13 @@ const Calculate = () => {
                   <strong>Calories</strong>
                 </TableCell>
                 <TableCell align="right">
-                  <strong>Fat&nbsp;(g)</strong>
+                  <strong>Protein&nbsp;(g)</strong>
                 </TableCell>
                 <TableCell align="right">
                   <strong>Carbs&nbsp;(g)</strong>
                 </TableCell>
                 <TableCell align="right">
-                  <strong>Protein&nbsp;(g)</strong>
+                  <strong>Fat&nbsp;(g)</strong>
                 </TableCell>
                 <TableCell></TableCell>
               </TableRow>
